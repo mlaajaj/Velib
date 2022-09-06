@@ -31,23 +31,23 @@ def get_meteo(villes):  # Prend en entrée une liste de villes et retourne un da
     valeurs = []
     for ville in villes:
         api = f"https://www.prevision-meteo.ch/services/json/{ville}"
-        response = requests.get(api, headers = {'headers':ua}, timeout=10)
+        response = requests.get(api, headers = {'headers':ua}, timeout=120)
         try:
             response.json()["current_condition"]
             rows = [ville]
-            rows.extend(list(response.json()["current_condition"].values())[0:-3:])
+            rows.extend(list(response.json()["current_condition"].values())[2:-3:])
             rows.append("Non")
             valeurs.append(rows)
         except:
             api = f"https://www.prevision-meteo.ch/services/json/paris"
-            response = requests.get(api, headers = {'headers':ua}, timeout=10)
+            response = requests.get(api, headers = {'headers':ua}, timeout=120)
             rows = [ville]
-            rows.extend(list(response.json()["current_condition"].values())[0:-3:])
+            rows.extend(list(response.json()["current_condition"].values())[2:-3:])
             rows.append("Oui")
             valeurs.append(rows)
         
     cols = ["ville"]
-    cols.extend(list(response.json()["current_condition"])[0:-3:])
+    cols.extend(list(response.json()["current_condition"])[2:-3:])
     cols.append("Correction")
     
     return pd.DataFrame(valeurs, columns=cols)
