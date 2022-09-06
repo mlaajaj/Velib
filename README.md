@@ -21,8 +21,8 @@ Cependant, les données fournies sont en flux continu et ne permettent pas d'obt
 
 | Elements | MàJ | Contenu |
 | :---:         |     :---:      |          :---: |
-| data.csv   | 30 min     | Flux continu + Données Météo   |
-| histo.csv     | 30 min       | Flux continu + historique      |
+| data.csv   | 60 min     | Flux continu + Données Météo   |
+| histo.csv     | 60 min       | Flux continu + historique      |
 
 ## TO-DO
 
